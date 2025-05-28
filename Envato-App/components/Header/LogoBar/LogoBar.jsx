@@ -2,6 +2,7 @@ export default function LogoBar(){
     return (
         <header className="bg-[#262626] sticky top-0 shadow-md">
         <div className="mx-1 px-4 py-2 flex justify-between items-center">
+          {/* Logo */}
           <div className="flex items-center">
             <a
               href="https://themeforest.net/item/healthcare-wordpress-theme/19264353"

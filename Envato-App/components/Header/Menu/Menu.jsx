@@ -1,4 +1,4 @@
-import menuItems from "../../../utils/menuPages";
+import menuItems from "../../../utils/menuItems";
 import companyLogo from "../../../public/companyLogo.svg";
 
 export default function Menu() {
