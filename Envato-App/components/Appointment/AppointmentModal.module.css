@@ -42,7 +42,7 @@
 }
  
 .closeButton:hover {
-    color: #34c5a1;
+    color: #00a3c8;
 }
  
 .modalTitle {
@@ -70,12 +70,12 @@
 }
  
 .modalInput:focus {
-    border-color: #34c5a1;
+    border-color: #00a3c8;
 }
  
 .modalSubmit {
     padding: 0.75rem 0;
-    background: linear-gradient(90deg, #34c5a1 0%, #4670ce 100%);
+    background: #00a3c8;
     color: #fff;
     border: none;
     border-radius: 8px;

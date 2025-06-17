@@ -165,6 +165,7 @@ export default function AppointmentModal({ dialogRef }) {
           <input
             name="appointment_date"
             type="date"
+            placeholder="dd/mm/yyyy"
             className={classes.modalInput}
             value={form.appointment_date}
             onChange={handleChange}
