@@ -1,0 +1,102 @@
+.dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    border: none;
+    max-width: 95vw;
+    max-height: 95vh;
+    background: transparent;
+    box-shadow: 0 8px 32px 0 rgba(60, 60, 120, 0.18), 0 1.5px 6px 0 rgba(52, 197, 161, 0.10);
+    border-radius: 18px;
+    overflow: visible;
+    z-index: 50;
+}
+ 
+.modalContent {
+    background: #fff;
+    padding: 2.5rem 2rem 2rem 2rem;
+    border-radius: 18px;
+    min-width: 340px;
+    max-width: 400px;
+    box-shadow: 0 2px 16px 0 rgba(60, 60, 120, 0.10);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ 
+.closeButton {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+    z-index: 2;
+}
+ 
+.closeButton:hover {
+    color: #34c5a1;
+}
+ 
+.modalTitle {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #222;
+    text-align: center;
+}
+ 
+.modalForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    width: 100%;
+}
+ 
+.modalInput {
+    padding: 0.75rem 1rem;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+}
+ 
+.modalInput:focus {
+    border-color: #34c5a1;
+}
+ 
+.modalSubmit {
+    padding: 0.75rem 0;
+    background: linear-gradient(90deg, #34c5a1 0%, #4670ce 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+}
+ 
+.modalSubmit:hover {
+    background: linear-gradient(90deg, #4670ce 0%, #34c5a1 100%);
+}
+ 
+.dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    border: none;
+    max-width: 90vw;
+    max-height: 90vh;
+}
