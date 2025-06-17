@@ -8,7 +8,7 @@ export default function Menu() {
   const path = usePathname();
   return (
     <>
-      <div className="sticky top-14 bg-white h-18 ">
+      <div className="sticky top-14 bg-white h-18 z-50">
         <header className="h-18 px-8">
           <div className= "hidden md:flex justify-around items-center-safe">
             <div className="flex justify-between items-center ">
