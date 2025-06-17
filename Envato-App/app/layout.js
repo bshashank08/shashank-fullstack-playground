@@ -1,7 +1,6 @@
 import "./globals.css";
 
 import Header from "@/components/Header/MainHeader/MainHeader";
-import Home from "@/components/Home/Home";
 
 export default function RootLayout({ children }) {
   return (
