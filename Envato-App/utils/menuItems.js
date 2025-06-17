@@ -14,17 +14,12 @@ const menuItems = [
     {name: "PAGES",
         subPages : [
             {name: "About", href: "/about"},
-            {name: "Doctors", href: "/doctors"},
+            {name: "Doctors", href: "/Doctors"},
             {name: "Blog", href: "/blog"},
         ]
     },
-    {name: "CONTACT" ,
-        subPages: [
-            {name: "ContactStyle 1", href: "/contact-style-1"},
-            {name: "ContactStyle 2", href: "/contact-style-2"},
-            {name: "ContactStyle 3", href: "/contact-style-3"},
-        ]
-    }
+    {name: "CONTACT" , href: "/Contact"},
+    
 ]
 
 export default menuItems;
