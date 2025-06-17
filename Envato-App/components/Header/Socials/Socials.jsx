@@ -1,10 +1,26 @@
+'use client'
+
 import Contact from "./Contact";
 import Icons from "../../../assets/Icons";
 import Tumblr from "@/public/tumblr.svg";
 import Link from "next/link";
+import { useState } from 'react'
+import AppointmentModalWrapper from '../../Appointment/AppointmentWrapper';
 
 export default function Socials() {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
+    <>
     <div className="hidden xl:flex justify-around items-center h-11 bg-white text-black border-b-[#eeee] border-b-1 ">
         <div className="flex flex-nowrap items-center justify-between gap-8">
           <div>
@@ -31,13 +47,16 @@ export default function Socials() {
       </div>
       </div>
       <div>
-        <Link href="/Appointments">
-        <button href="/Appointments" className="bg-[#00a3c8] h-9 rounded-3xl text-white text-sm w-44 hover:bg-[#6ebacb] cursor-pointer">
+        {/* <Link href="/Appointments" > */}
+        <button onClick={handleOpenModal} className="bg-[#00a3c8] h-9 rounded-3xl text-white text-sm w-44 hover:bg-[#6ebacb] cursor-pointer">
           Make an Appointment
         </button>
-        </Link>
+        {isModalOpen && <AppointmentModalWrapper onClose={handleCloseModal} />}
+        {/* </Link> */}
       </div>
       </div>
     </div>
+    {}
+    </>
   );
 }
