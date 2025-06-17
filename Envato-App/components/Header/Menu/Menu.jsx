@@ -1,8 +1,11 @@
+'use client'
 import menuItems from "@/utils/menuItems";
 import companyLogo from "@/public/companyLogo.svg";
 import Link from 'next/link';
+import { usePathname } from "next/navigation";
 
 export default function Menu() {
+  const path = usePathname();
   return (
     <>
       <div className="sticky top-14 bg-white h-18 ">
@@ -18,11 +21,11 @@ export default function Menu() {
             <nav className=" flex text-black space-x-4 ">
               {menuItems.map((item, index) => (
                 <div key={index} className="relative group">
-                  <Link href={item.href || "#"} className="hover:text-[#00a3c8]">
+                  <Link href={item.href || "#"} className={path.startsWith(item.href) ? "text-[#00a3c8]" : "hover:text-[#00a3c8]"}>
                     {item.name}
                   </Link>
                   {item.subPages && (
-                    <div className=" absolute left-0 bg-white hidden group-hover:block ">
+                    <div className="absolute left-0 bg-white hidden group-hover:block z-50">
                       <ul>
                         {item.subPages.map((subItem, subIndex) => (
                           <li

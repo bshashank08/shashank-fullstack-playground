@@ -1,9 +1,9 @@
 const menuItems = [
-    { name: "HOME", href: "/"},
+    { name: "HOME", href: "/Home"},
     {name: "SERVICES",
         subPages : [
             {
-                name: "Consultation", href: "/services/consultation"
+                name: "Appointments", href: "/Appointments"
             },
             { name: "Surgery", href: "/services/surgery"},
             { name: "Therapy", href: "/services/therapy"},
