@@ -1,6 +1,7 @@
 'use client'
 import menuItems from "@/utils/menuItems";
-import companyLogo from "@/public/companyLogo.svg";
+import Image from "next/image";
+import companyLogo from "@/public/assets/companyLogo.svg";
 import Link from 'next/link';
 import { usePathname } from "next/navigation";
 
@@ -12,8 +13,8 @@ export default function Menu() {
         <header className="h-18 px-8">
           <div className= "hidden md:flex justify-around items-center-safe">
             <div className="flex justify-between items-center ">
-              <img
-                src="./companyLogo.svg"
+              <Image
+                src={companyLogo}
                 alt="T"
                 className="h-full w-20 hover:scale-105"
               />

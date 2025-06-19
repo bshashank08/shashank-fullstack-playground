@@ -9,12 +9,12 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import ResponsiveBlocks from "../ResponsiveBlocks/Features";
-import doctorIcon from "@/public/doctor.svg";
-import ambulance from "@/public/ambulance.svg";
-import plant from "@/public/plant.svg";
-import clock from "@/public/clock.svg";
-import slide1Image from "@/public/slide1Image.jpg";
-import slide2Image from "@/public/slide2Image.jpg";
+import doctorIcon from "@/public/assets/doctor.svg";
+import ambulance from "@/public/assets/ambulance.svg";
+import plant from "@/public/assets/plant.svg";
+import clock from "@/public/assets/clock.svg";
+import slide1Image from "@/public/assets/slide1Image.jpg";
+import slide2Image from "@/public/assets/slide2Image.jpg";
 
 export default function Home() {
   return (

@@ -1,8 +1,8 @@
 import DoctorsTile from "@/components/DoctorsTitle/DoctorsTile";
-import doctorTile1 from "@/public/doctorTile1.jpg";
-import doctorTile2 from "@/public/doctorTile2.jpg";
-import doctorTile3 from "@/public/doctorTile3.jpg";
-import doctorTile4 from "@/public/doctorTile4.jpg";
+import doctorTile1 from "@/public/assets/doctorTile1.jpg";
+import doctorTile2 from "@/public/assets/doctorTile2.jpg";
+import doctorTile3 from "@/public/assets/doctorTile3.jpg";
+import doctorTile4 from "@/public/assets/doctorTile4.jpg";
 
 export default function DoctorsPage() {
   return (
