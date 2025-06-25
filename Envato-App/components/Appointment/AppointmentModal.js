@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import classes from "./AppointmentModal.module.css";
+import "@auth0/nextjs-auth0";
 
 export default function AppointmentModal({ dialogRef }) {
+  const { user } = useUser();
   const [form, setForm] = useState({ name: "", email: "", phone_number: "" });
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
@@ -99,108 +101,125 @@ export default function AppointmentModal({ dialogRef }) {
         >
           &times;
         </button>
-        <h2 className={classes.modalTitle}>Schedule your Appointment</h2>
-        <form
-          className={classes.modalForm}
-          onSubmit={handleSubmit}
-          autoComplete="off"
-        >
-          <input
-            name="name"
-            type="text"
-            placeholder="Your Name"
-            className={classes.modalInput}
-            value={form.name}
-            onChange={handleChange}
-            disabled={submitting}
-            aria-invalid={!!errors.name}
-            aria-describedby="name-error"
-          />
-          {errors.name && (
-            <span
-              id="name-error"
-              style={{ color: "#f15b5a", fontSize: "0.95em" }}
-            >
-              {errors.name}
-            </span>
-          )}
-          <input
-            name="email"
-            type="email"
-            placeholder="Your Email"
-            className={classes.modalInput}
-            value={form.email}
-            onChange={handleChange}
-            disabled={submitting}
-            aria-invalid={!!errors.email}
-            aria-describedby="email-error"
-          />
-          {errors.email && (
-            <span
-              id="email-error"
-              style={{ color: "#f15b5a", fontSize: "0.95em" }}
-            >
-              {errors.email}
-            </span>
-          )}
-          <input
-            name="phone_number"
-            type="tel"
-            placeholder="Your Phone Number"
-            className={classes.modalInput}
-            value={form.phone_number}
-            onChange={handleChange}
-            disabled={submitting}
-            aria-invalid={!!errors.phone_number}
-            aria-describedby="phone-error"
-          />
-          {errors.phone_number && (
-            <span
-              id="phone-error"
-              style={{ color: "#f15b5a", fontSize: "0.95em" }}
-            >
-              {errors.phone_number}
-            </span>
-          )}
-          <input
-            name="appointment_date"
-            type="date"
-            placeholder="dd/mm/yyyy"
-            className={classes.modalInput}
-            value={form.appointment_date}
-            onChange={handleChange}
-            disabled={submitting}
-            aria-invalid={!!errors.appointment_date}
-            aria-describedby="date-error"
-          />
-          {errors.appointment_date && (
-            <span
-              id="date-error"
-              style={{ color: "#f15b5a", fontSize: "0.95em" }}
-            >
-              {errors.appointment_date}
-            </span>
-          )}
-          <button
-            type="submit"
-            className={classes.modalSubmit}
-            disabled={submitting}
-          >
-            {submitting ? "Booking..." : "Submit"}
-          </button>
-          {success && (
-            <div
-              style={{
-                color: success.includes("success") ? "#34c5a1" : "#f15b5a",
-                marginTop: 8,
-                textAlign: "center",
+        {!user ? (
+          <div style={{ textAlign: "center", padding: "2rem 1rem" }}>
+            <h2 className={classes.modalTitle}>Login to Add Appointments</h2>
+            <button
+              className="bg-[#00a3c8] h-9 rounded-3xl text-white text-shadow-md w-44 hover:bg-[#6ebacb] cursor-pointer"
+              onClick={() => {
+                window.location.href = "/api/auth/login";
               }}
             >
-              {success}
-            </div>
-          )}
-        </form>
+              Login
+            </button>
+          </div>
+        ) : (
+          <>
+            <h2 className={classes.modalTitle}>Schedule your Appointment</h2>
+            <form
+              className={classes.modalForm}
+              onSubmit={handleSubmit}
+              autoComplete="off"
+            >
+              <input
+                name="name"
+                type="text"
+                placeholder="Your Name"
+                className={classes.modalInput}
+                value={form.name}
+                onChange={handleChange}
+                disabled={submitting}
+                aria-invalid={!!errors.name}
+                aria-describedby="name-error"
+              />
+              {errors.name && (
+                <span
+                  id="name-error"
+                  style={{ color: "#f15b5a", fontSize: "0.95em" }}
+                >
+                  {errors.name}
+                </span>
+              )}
+              <input
+                name="email"
+                type="email"
+                placeholder="Your Email"
+                className={classes.modalInput}
+                value={form.email}
+                onChange={handleChange}
+                disabled={submitting}
+                aria-invalid={!!errors.email}
+                aria-describedby="email-error"
+              />
+              {errors.email && (
+                <span
+                  id="email-error"
+                  style={{ color: "#f15b5a", fontSize: "0.95em" }}
+                >
+                  {errors.email}
+                </span>
+              )}
+              <input
+                name="phone_number"
+                type="tel"
+                placeholder="Your Phone Number"
+                className={classes.modalInput}
+                value={form.phone_number}
+                onChange={handleChange}
+                disabled={submitting}
+                aria-invalid={!!errors.phone_number}
+                aria-describedby="phone-error"
+              />
+              {errors.phone_number && (
+                <span
+                  id="phone-error"
+                  style={{ color: "#f15b5a", fontSize: "0.95em" }}
+                >
+                  {errors.phone_number}
+                </span>
+              )}
+              <input
+                name="appointment_date"
+                type="date"
+                placeholder="dd/mm/yyyy"
+                className={classes.modalInput}
+                value={form.appointment_date}
+                onChange={handleChange}
+                disabled={submitting}
+                aria-invalid={!!errors.appointment_date}
+                aria-describedby="date-error"
+              />
+              {errors.appointment_date && (
+                <span
+                  id="date-error"
+                  style={{ color: "#f15b5a", fontSize: "0.95em" }}
+                >
+                  {errors.appointment_date}
+                </span>
+              )}
+              <button
+                type="submit"
+                className={classes.modalSubmit}
+                disabled={submitting}
+              >
+                {submitting ? "Booking..." : "Submit"}
+              </button>
+              {success && (
+                <div
+                  style={{
+                    color: success.includes("success") ? "#34c5a1" : "#f15b5a",
+                    marginTop: 8,
+                    textAlign: "center",
+                  }}
+                >
+                  {success}
+                </div>
+              )}
+            </form>
+          </>
+        )}
       </div>
     </dialog>
   );
 }
+

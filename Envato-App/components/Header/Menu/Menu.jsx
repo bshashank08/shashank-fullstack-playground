@@ -4,9 +4,11 @@ import Image from "next/image";
 import companyLogo from "@/public/assets/companyLogo.svg";
 import Link from 'next/link';
 import { usePathname } from "next/navigation";
+import { useUser } from "@auth0/nextjs-auth0";
 
 export default function Menu() {
   const path = usePathname();
+  const { user } = useUser();
   return (
     <>
       <div className="sticky top-14 bg-white h-18 z-50">
@@ -19,7 +21,7 @@ export default function Menu() {
                 className="h-full w-20 hover:scale-105"
               />
             </div>
-            <nav className=" flex text-black space-x-4 ">
+            { user && (<nav className=" flex text-black space-x-4 ">
               {menuItems.map((item, index) => (
                 <div key={index} className="relative group">
                   <Link href={item.href || "#"} className={path.startsWith(item.href) ? "text-[#00a3c8]" : "hover:text-[#00a3c8]"}>
@@ -41,7 +43,7 @@ export default function Menu() {
                   )}
                 </div>
               ))}
-            </nav>
+            </nav>)}
 
             {/* Search Bar */}
             <div className="relative hidden md:flex items-center justify-center gap-3">
