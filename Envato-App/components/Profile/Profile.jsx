@@ -2,15 +2,11 @@
 
 import React from "react";
 import { useUser } from "@auth0/nextjs-auth0";
-
-import Loading from "../../components/Loading/Loading";
-
 export default function Profile() {
-  const { user, isLoading } = useUser();
+  const { user } = useUser();
 
   return (
     <>
-      {isLoading && <Loading />}
       {user && (
         <div className="flex flex-col items-center justify-center">
           <h1 className="text-black text-3xl font-bold pt-20 mb-4 pb-20">
