@@ -11,11 +11,11 @@ export default function DoctorsTile({
   return (
     <>
       <div
-        className="flex flex-col w-70 shadow-xl hover:scale-105 relative"
+        className="flex flex-col wrap w-70 shadow-xl hover:scale-105 relative border border-gray-400"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="h-80 w-full relative">
+        <div className="h-80 w-full relative border-b border-gray-400">
           <Image
             src={doctorsTileImage}
             alt="Doctors Tile"
@@ -24,7 +24,7 @@ export default function DoctorsTile({
           />
           {isHovered && (
             <div className="absolute inset-0 flex items-center justify-center z-10 backdrop-blur-xs">
-              <span className="text-black text-lg font-semibold px-4 py-2 rounded">
+              <span className="text-[#666] text-lg font-semibold px-4 py-2 rounded">
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
           commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
           et magnis dis parturient montes, nascetur ridiculus mus.
@@ -32,9 +32,9 @@ export default function DoctorsTile({
             </div>
           )}
         </div>
-        <div className="bg-amber-500 h-30 flex flex-col items-center pt-4 gap-1.5">
-          <h3 className="font-bold text-white">{name}</h3>
-          <p className="text-white">{specialization}</p>
+        <div className="h-30 flex flex-col items-center pt-4 gap-1.5">
+          <h3 className="font-bold text-[#0087be]">{name}</h3>
+          <p className="text-[#666666]">{specialization}</p>
         </div>
       </div>
     </>

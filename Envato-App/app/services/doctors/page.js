@@ -7,18 +7,19 @@ import doctorTile4 from "@/public/assets/doctorTile4.jpg";
 export default function DoctorsPage() {
   return (
     <>
-      <div className="flex flex-col items-center justify-center pt-20 gap-20">
-        <h1 className="text-black font-bold text-3xl font-lato">
-          MEET OUR <span className="text-red-700">DOCTORS</span>!
+      <div className="flex flex-col items-center justify-center pt-20 gap-10">
+        <h1 className="text-black  text-3xl font-lato">
+          MEET OUR <span className="text-red-700 font-bold">DOCTORS</span>!
         </h1>
+        <div className="w-12 h-0.5 bg-[#0087be] rounded-full p-0"></div>
         <div>
-          <p className="text-black break-words text-center w-200">
+          <p className="text-[#666666] break-words text-center w-full max-w-xs sm:max-w-md md:max-w-2xl mx-auto text-base sm:text-lg md:text-xl">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
             commodo ligula eget dolor. Aenean massa. Cum sociis natoque
             penatibus et magnis dis parturient montes, nascetur ridiculus mus.
           </p>
         </div>
-        <div className="flex flex-row gap-8">
+        <div className="flex flex-wrap gap-8 justify-center w-full md:flex-row flex-col items-center">
           <DoctorsTile
             doctorsTileImage={doctorTile1}
             name={"Dr. Ken Morgan"}
