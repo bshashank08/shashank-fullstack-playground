@@ -52,13 +52,12 @@ export default function Home() {
                   laboris nisi ut aliquip ex ea commodo consequat.
                 </p>
               </div>
-              <div className="w-full md:w-1/2">
+              <div className="w-full md:w-1/2 relative">
                 <Image
                   src={slide2Image}
-                  layout="responsive"
                   width={500}
                   height={500}
-                  objectFit="contain"
+                  style={{ objectFit: "contain" }}
                   alt="Doctor Background"
                 />
               </div>
@@ -77,13 +76,12 @@ export default function Home() {
                   laboris nisi ut aliquip ex ea commodo consequat.
                 </p>
               </div>
-              <div className="w-full md:w-1/2 flex justify-center items-center">
+              <div className="w-full md:w-1/2 flex justify-center items-center relative">
                 <Image
                   src={slide1Image}
-                  layout="intrinsic"
                   width={600}
                   height={500}
-                  objectFit="cover"
+                  style={{ objectFit: "cover" }}
                   alt="Doctor Background"
                 />
               </div>
