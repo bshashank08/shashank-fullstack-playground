@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import classes from "./AppointmentModal.module.css";
-import "@auth0/nextjs-auth0";
+import {useUser} from "@auth0/nextjs-auth0";
 
 export default function AppointmentModal({ dialogRef }) {
   const { user } = useUser();
@@ -201,6 +201,7 @@ export default function AppointmentModal({ dialogRef }) {
                 type="submit"
                 className={classes.modalSubmit}
                 disabled={submitting}
+                data-testid="submit-button"
               >
                 {submitting ? "Booking..." : "Submit"}
               </button>
