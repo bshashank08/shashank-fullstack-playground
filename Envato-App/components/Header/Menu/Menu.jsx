@@ -23,8 +23,8 @@ export default function Menu() {
             </div>
             { user && (<nav className=" flex text-black space-x-4 ">
               {menuItems.map((item, index) => (
-                <div key={index} className="relative group">
-                  <Link href={item.href || "#"} className={path.startsWith(item.href) ? "text-[#00a3c8]" : "hover:text-[#00a3c8]"}>
+                <div key={index} className="relative group" data-testid={`menu-item-${index}`}>
+                  <Link href={item.href || "#"} className={(path.startsWith(item.href) ? "text-[#00a3c8] font-bold text-lg" : "hover:text-[#00a3c8] text-gray-600 font-semibold text-lg") }>
                     {item.name}
                   </Link>
                   {item.subPages && (
