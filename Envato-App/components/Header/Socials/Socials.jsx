@@ -5,18 +5,16 @@ import Image from "next/image";
 import Tumblr from "@/public/assets/tumblr.svg";
 import Youtube from "@/public/assets/youtube.svg";
 import Tiktok from "@/public/assets/tik-tok.svg";
-import Phone from "@/public/assets/phone.svg";
-import headerClock from "@/public/assets/headerClock.svg";
-import Email from "@/public/assets/email.svg";
 import Twitter from "@/public/assets/twitter.svg";
 import { useState } from "react";
 import AppointmentModalWrapper from "../../Appointment/AppointmentWrapper";
 import { useUser } from "@auth0/nextjs-auth0";
-import Link from "next/link";
+import ProfileModal from "../../Profile/ProfileModal";
 
 export default function Socials() {
-  const { user, isLoading } = useUser();
+  const { user } = useUser();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -46,7 +44,7 @@ export default function Socials() {
               <Image
                   src={Twitter}
                   className="h-4 w-4 mt-0.5 mb-0.5 hover:scale-140"
-                  alt="T"
+                  alt="Twitter"
                 />
             </div>
             <div>
@@ -54,7 +52,7 @@ export default function Socials() {
                 <Image
                   src={Tumblr}
                   className="h-3 w-3 mt-0.5 hover:scale-140"
-                  alt="T"
+                  alt="Tumblr"
                 />
               </a>
             </div>
@@ -63,7 +61,7 @@ export default function Socials() {
                 <Image
                   src={Youtube}
                   className="h-4 w-4 hover:scale-140"
-                  alt="Y"
+                  alt="Youtube"
                 />
               </a>
             </div>
@@ -72,7 +70,7 @@ export default function Socials() {
                 <Image
                   src={Tiktok}
                   className="h-3.5 w-4 hover:scale-140 "
-                  alt="TK"
+                  alt="TikTok"
                 />
               </a>
             </div>
@@ -92,14 +90,22 @@ export default function Socials() {
           </div>
           {user && (
             <div>
-              <Link href="/Profile">
+              <button
+                onClick={() => setIsProfileOpen(true)}
+                className="focus:outline-none"
+                aria-label="Open Profile"
+              >
                 <img
                   src={user.picture}
                   alt="Profile"
-                  className="rounded-full border-black border-[1] h-9 w-9"
+                  className="rounded-full border-black border-[1] h-9 w-9 mt-1.5"
                   decode="async"
+                  data-testid="profile-button"
                 />
-              </Link>
+              </button>
+              {isProfileOpen && (
+                <ProfileModal onClose={() => setIsProfileOpen(false)} />
+              )}
             </div>
           )}
         </div>
