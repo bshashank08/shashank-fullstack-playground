@@ -47,7 +47,6 @@ export default function AppointmentModal({ dialogRef }) {
     setSuccess(null);
 
     try {
-      // Format the appointment_date to yyyy/mm/dd
       const formattedDate = form.appointment_date
         ? new Date(form.appointment_date)
             .toISOString()
@@ -55,18 +54,11 @@ export default function AppointmentModal({ dialogRef }) {
             .replace(/-/g, "/")
         : "";
 
-      console.log("Formatted Date:", formattedDate); // Debugging log
-      console.log("Request Body:", { ...form, appointment_date: formattedDate }); // Debugging log
-
       const res = await fetch("/api/appointments", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({...form, appointment_date: formattedDate}),
       });
-
-      console.log("Response Status:", res.status); // Debugging log
-      const responseData = await res.json();
-      console.log("Response Data:", responseData); // Debugging log
 
       if (res.ok) {
         setSuccess("Appointment booked successfully!");
@@ -84,7 +76,6 @@ export default function AppointmentModal({ dialogRef }) {
         setSuccess("Failed to book appointment.");
       }
     } catch(error) {
-      console.error("Error:", error); // Debugging log
       setSuccess("Failed to book appointment.");
     }
     setSubmitting(false);
