@@ -3,6 +3,7 @@ import Socials from "../Socials/Socials";
 import Menu from "../Menu/Menu";
 
 export default function Header() {
+  
   return (
     <>
       <LogoBar/>
