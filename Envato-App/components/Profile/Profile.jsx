@@ -22,15 +22,15 @@ export default function Profile() {
             />
             <div>
               <h2 className="font-semibold text-black mb-3" data-testid="profile-firstname">
-                <span className="text-red-700 font-bold">FIRST NAME :</span>
+                <span className="text-red-700 font-bold">FIRST NAME : </span>
                 {user.given_name}
               </h2>
               <h2 className="font-semibold text-black mb-3" data-testid="profile-lastname">
-                <span className="text-red-700 font-bold">LAST NAME :</span>
+                <span className="text-red-700 font-bold">LAST NAME : </span>
                 {user.family_name}
               </h2>
               <p className="font-semibold text-black" data-testid="profile-email">
-                <span className="text-red-700 font-bold">EMAIL :</span>
+                <span className="text-red-700 font-bold">EMAIL : </span>
                 {user.email}
               </p>
             </div>
