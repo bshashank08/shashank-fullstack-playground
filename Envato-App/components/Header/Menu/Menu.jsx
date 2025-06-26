@@ -9,6 +9,15 @@ import { useUser } from "@auth0/nextjs-auth0";
 export default function Menu() {
   const path = usePathname();
   const { user } = useUser();
+
+  const isMenuItemActive = (item) => {
+    if (item.href && path.startsWith(item.href)) return true;
+    if (item.subPages && Array.isArray(item.subPages)) {
+      return item.subPages.some((sub) => sub.href && path.startsWith(sub.href));
+    }
+    return false;
+  };
+
   return (
     <>
       <div className="sticky top-14 bg-white h-18 z-50">
@@ -24,7 +33,14 @@ export default function Menu() {
             { user && (<nav className=" flex text-black space-x-4 ">
               {menuItems.map((item, index) => (
                 <div key={index} className="relative group" data-testid={`menu-item-${index}`}>
-                  <Link href={item.href || "#"} className={(path.startsWith(item.href) ? "text-[#00a3c8] font-bold text-lg" : "hover:text-[#00a3c8] text-gray-700 text-lg") }>
+                  <Link
+                    href={item.href || "#"}
+                    className={
+                      isMenuItemActive(item)
+                        ? "text-[#00a3c8] text-lg"
+                        : "hover:text-[#00a3c8] text-gray-700 text-lg"
+                    }
+                  >
                     {item.name}
                   </Link>
                   {item.subPages && (
@@ -32,7 +48,12 @@ export default function Menu() {
                       <ul>
                         {item.subPages.map((subItem, subIndex) => (
                           <li
-                            className=" hover:bg-[#00a3c8] hover:text-white w-fit py-0.5"
+                            className={
+                              (subItem.href && path.startsWith(subItem.href)
+                                ? "bg-[#00a3c8] text-white"
+                                : "hover:bg-[#00a3c8] hover:text-white") +
+                              " w-fit py-0.5"
+                            }
                             key={subIndex}
                           >
                             <Link href={subItem.href}>{subItem.name}</Link>
