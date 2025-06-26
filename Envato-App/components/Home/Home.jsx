@@ -1,25 +1,23 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-
 import { Navigation, Pagination, Keyboard, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
-import ResponsiveBlocks from "../ResponsiveBlocks/Features";
 import doctorIcon from "@/public/assets/doctor.svg";
 import ambulance from "@/public/assets/ambulance.svg";
-import plant from "@/public/assets/plant.svg";
 import clock from "@/public/assets/clock.svg";
+import plant from "@/public/assets/plant.svg";
 import slide1Image from "@/public/assets/slide1Image.jpg";
 import slide2Image from "@/public/assets/slide2Image.jpg";
+import ResponsiveBlocks from "@/components/ResponsiveBlocks/Features";
 
 export default function Home() {
   return (
     <>
-      <section className="min-h-[560px] w-full relative z-10">
+      <section className="min-h-[560px] w-full relative z-10" data-testid="home-section">
         <Swiper
           modules={[Navigation, Pagination, Keyboard, Autoplay]}
           loop
