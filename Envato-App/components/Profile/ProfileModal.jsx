@@ -4,7 +4,6 @@ import Profile from "./Profile";
 export default function ProfileModal({ onClose }) {
   const modalRef = useRef(null);
 
-  // Trap focus inside modal and close on Escape
   useEffect(() => {
     function handleKeyDown(e) {
       if (e.key === "Escape") onClose();
@@ -13,7 +12,6 @@ export default function ProfileModal({ onClose }) {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [onClose]);
 
-  // Prevent background scroll
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {

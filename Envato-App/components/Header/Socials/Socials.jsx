@@ -76,7 +76,6 @@ export default function Socials() {
             </div>
           </div>
           <div>
-            {/* <Link href="/Appointments" > */}
             <button
               onClick={handleOpenModal}
               className="bg-[#00a3c8] h-9 rounded-3xl text-white text-sm w-44 hover:bg-[#6ebacb] cursor-pointer"
@@ -86,7 +85,6 @@ export default function Socials() {
             {isModalOpen && (
               <AppointmentModalWrapper onClose={handleCloseModal} />
             )}
-            {/* </Link> */}
           </div>
           {user && (
             <div>
